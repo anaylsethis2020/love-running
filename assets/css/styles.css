@@ -16,6 +16,7 @@ body {
     /* Generic project styles */
     color: #3a3a3a;
     font-family: 'Lato', sans-serif;
+
 }
 
 /* Header */
@@ -26,7 +27,7 @@ header {
     z-index: 99;
     width: 100%;
     box-shadow: 0 2px 2px #3a3a3a;
-    display:flex;
+    display: flex;
     justify-content: space-between;
     align-items: baseline;
 }
@@ -61,16 +62,25 @@ h1 {
 nav {
     position: absolute;
     background-color: #ffffff;
-    width: 100%;    
+    width: 100%;
     left: 0;
-    padding: 0 1rem ;
+    padding: 0 1rem;
     box-shadow: 0 2px 2px #3a3a3a;
+    display: none;
+    top: 100%;
+}
+
+/* Nav toggle */
+#nav-toggle:checked~nav {
+    display: block;
+}
+
+#nav-toggle {
     display: none;
 }
 
-/*Nav toggle */
-#nav-toggle:checked~nav {
-    display: block;
+.nav-toggle-label {
+    font-size: 2rem;
 }
 
 /* Main content */
@@ -78,9 +88,33 @@ main {
     background-color: lightblue;
     /* Make main element take up any surplus space to push footer down */
     flex: 1 0 auto;
+    margin-top: 47px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 /* Footer */
 footer {
     background-color: orange;
 }
+
+/* media query: tablets and larger (768px and up) */
+@media screen (min-width: 768px) {
+    /* Header */
+    nav {
+        display: block;
+        position: relative;
+        box-shadow: none;
+        width: fit-content;
+        padding-right: 1rem;
+    } 
+
+    #menu {
+        display: flex;
+    }
+
+    .nav-toggle-label {
+        display: none;
+    }
+}
+  
